@@ -82,19 +82,13 @@ void parser(char *str, unsigned int line_number, stack_t **stack)
 	int i;
 
 	instruction_t op[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"sub", sub},
-		{"mul", mul},
-		{"div", divi},
-		{"mod", mod},
-		{"nop", nop},
-		{"pchar", pchar},
-		{NULL, NULL}
+		{"push", push},	{"pall", pall},
+		{"pint", pint},	{"pop", pop},
+		{"swap", swap},	{"add", add},
+		{"sub", sub}, {"mul", mul},
+		{"div", divi}, {"mod", mod},
+		{"nop", nop}, {"pchar", pchar},
+		{"pstr", pstr}, {NULL, NULL}
 
 	};
 	command = strtok(str, " \n\t");
