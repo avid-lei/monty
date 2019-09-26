@@ -44,6 +44,7 @@ typedef struct instruction_s
  * struct globe - global struct
  * @file: file reading from
  * @args: char*
+ * @mode: mode stack or queue
  * Description: global struct holding variables
  */
 
@@ -51,6 +52,7 @@ typedef struct globe
 {
 	FILE *file;
 	char *args;
+	int mode; /* -1 for queue, 0 for stack (default)*/
 } globe;
 
 extern globe global;
@@ -76,6 +78,11 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void sta(stack_t **stack, unsigned int line_number);
+void que(stack_t **stack, unsigned int line_number);
+void quepush(stack_t **stack, unsigned int line_number, char *token);
+
+
 
 
 

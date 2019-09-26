@@ -9,12 +9,8 @@
 
 void push(stack_t **stack, unsigned int line_number)
 {
-
-	/*      if (!stack)*/
 	int num;
-
 	stack_t *new_node = malloc(sizeof(stack_t));
-
 	char *token = strtok(global.args, " \t");
 
 	token = strtok(NULL, " \t");
@@ -25,6 +21,12 @@ void push(stack_t **stack, unsigned int line_number)
 		errormsg(4, NULL, line_number);
 	}
 
+	if (global.mode == -1)
+	{
+		quepush(stack, line_number, token);
+		return;
+	}
+
 	if (!token || isnum(token) == -1)
 	{
 		free(new_node);
@@ -33,7 +35,6 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 
 	num = atoi(token);
-
 	new_node->prev = NULL;
 	new_node->n = num;
 

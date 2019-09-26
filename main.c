@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <strings.h>
 
-globe global = {NULL, NULL};
+globe global = {NULL, NULL, 0};
 
 /**
  * main-main function
@@ -89,7 +89,8 @@ void parser(char *str, unsigned int line_number, stack_t **stack)
 		{"div", divi}, {"mod", mod},
 		{"nop", nop}, {"pchar", pchar},
 		{"pstr", pstr}, {"rotl", rotl},
-		{"rotr", rotr}, {NULL, NULL}
+		{"rotr", rotr}, {"queue", que},
+		{"stack", sta}, {NULL, NULL}
 
 	};
 	command = strtok(str, " \n\t");
