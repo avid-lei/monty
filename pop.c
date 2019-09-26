@@ -87,19 +87,15 @@ void pchar(stack_t **stack, unsigned int line_number)
 	if (!(*stack))
 	{
 		freeall(stack);
-		free(global.args);
 		errormsg(14, NULL, line_number);
 	}
 
-	if (temp->n < 65 || temp->n > 122 || (temp->n < 97 && temp->n > 90))
+	if (temp->n < 32 || temp->n > 127)
 	{
 		freeall(stack);
-		free(global.args);
 		errormsg(15, NULL, line_number);
 	}
 
-	putchar(temp->n);
-	putchar('\n');
-
+	printf("%c\n", temp->n);
 }
 
