@@ -90,7 +90,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		errormsg(14, NULL, line_number);
 	}
 
-	if (temp->n < 32 || temp->n > 127)
+	if (temp->n < 1 || temp->n > 127)
 	{
 		freeall(stack);
 		errormsg(15, NULL, line_number);
@@ -117,7 +117,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 	{
 		while (temp->next && temp->n != 0)
 		{
-			if (temp->n > 32 && temp->n < 127)
+			if (temp->n > 1 && temp->n < 127)
 			{
 				printf("%c", temp->n);
 
