@@ -94,7 +94,6 @@ void parser(char *str, unsigned int line_number, stack_t **stack)
 		{"div", divi},
 		{"mod", mod},
 		{"nop", nop},
-		{"#", nop},
 		{NULL, NULL}
 
 	};
@@ -110,13 +109,14 @@ void parser(char *str, unsigned int line_number, stack_t **stack)
 			op[i].f(stack, line_number);
 			return;
 		}
-
+		if (strncmp(command, "#", 1) == 0)
+		{
+			nop(stack, line_number);
+			return;
+		}
 	}
-
 	freeall(stack);
 	errormsg(13, command, line_number);
-
-
 }
 
 /**
