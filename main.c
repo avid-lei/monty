@@ -88,7 +88,8 @@ void parser(char *str, unsigned int line_number, stack_t **stack)
 		{"sub", sub}, {"mul", mul},
 		{"div", divi}, {"mod", mod},
 		{"nop", nop}, {"pchar", pchar},
-		{"pstr", pstr}, {NULL, NULL}
+		{"pstr", pstr}, {"rotl", rotl},
+		{"rotr", rotr}, {NULL, NULL}
 
 	};
 	command = strtok(str, " \n\t");
