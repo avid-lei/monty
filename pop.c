@@ -84,7 +84,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
 
-	if (!(*stack))
+	if (!(*stack) || !stack)
 	{
 		freeall(stack);
 		errormsg(14, NULL, line_number);
