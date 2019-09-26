@@ -82,7 +82,6 @@ void parser(char *str, unsigned int line_number, stack_t **stack)
 	int i;
 
 	instruction_t op[] = {
-
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
@@ -94,6 +93,7 @@ void parser(char *str, unsigned int line_number, stack_t **stack)
 		{"div", divi},
 		{"mod", mod},
 		{"nop", nop},
+		{"pchar", pchar},
 		{NULL, NULL}
 
 	};
@@ -157,6 +157,9 @@ void errormsg(int x, char *str, unsigned int line_number)
 		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
 	else if (x == 13)
 		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, str);
-
+	else if (x == 14)
+		fprintf(stderr, "l%u: can't pchar, stack empty\n", line_number);
+	else if (x == 15)
+		fprintf(stderr, "l%u: can't pchar, value out of range\n", line_number);
 	exit(EXIT_FAILURE);
 }

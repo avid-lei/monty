@@ -73,3 +73,31 @@ void nop(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 }
+
+/**
+ * pchar - print character
+ * @stack: stack_t
+ * @line_number: int
+ * Return: none
+ */
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (!(*stack))
+	{
+		freeall(stack);
+		errormsg(14, NULL, line_number);
+	}
+
+	if (temp->n < 32 || temp->n > 126)
+	{
+		freeall(stack);
+		errormsg(15, NULL, line_number);
+	}
+
+	putchar(temp->n);
+	putchar('\n');
+
+}
+
