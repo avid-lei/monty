@@ -84,10 +84,21 @@ void pall(stack_t **stack, unsigned int line_number)
 int isnum(char *str)
 {
 
+
+
 	if (!str)
 		return (-1);
 
 	str = strtok(str, "\n");
+
+	if (*str == '-')
+	{
+		str++;
+		if (*str == '\0')
+			return (-1);
+	}
+
+
 	while (*str)
 	{
 

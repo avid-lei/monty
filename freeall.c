@@ -18,8 +18,6 @@ void freeall(stack_t **stack)
 
 	}
 
-	/*if (global.args)
-		free(global.args);*/
 
 
 	fclose(global.file);
