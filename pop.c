@@ -90,7 +90,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		errormsg(14, NULL, line_number);
 	}
 
-	if (temp->n < 32 || temp->n > 126)
+	if (temp->n < 65 || temp->n > 122 || (temp->n < 97 && temp->n > 90))
 	{
 		freeall(stack);
 		errormsg(15, NULL, line_number);
